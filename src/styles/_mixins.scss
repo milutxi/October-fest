@@ -1,0 +1,31 @@
+@mixin flexbox {
+    display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   align-content: center;
+   justify-content: flex-end;
+}
+
+@mixin flexbox-beer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@mixin button-style {
+    border: {
+        radius: 10px;
+        width: 1px;
+        style: solid;
+        color: #1a4d6e;   
+    }
+    cursor: pointer;
+    padding: $indent__s;
+    background-color: #acdbfa;
+
+    &:hover{
+        color: #acdbfa;
+        background-color: #1a4d6e;
+    }
+}
+

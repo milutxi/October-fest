@@ -1,0 +1,67 @@
+@import '../../App.scss';
+
+.header {
+    @include flexbox;
+    
+    background: {
+        image: url('../../assets/images.jpeg');
+        position-x: center;
+        position-y: center;
+        repeat: no-repeat;
+        size: 100%;
+    }
+
+    padding: $indent__l;
+    padding-bottom: $indent__s;
+    width: auto;
+
+    &__title {
+        color:#acdbfa;   
+        font-family: $font-germania;
+        font-size: $font-size__xxl;
+        margin-block-end: auto;
+        text-align: center;
+    }
+
+    &__subtitle {
+        color:#acdbfa;
+        font-family: $font-germania;
+        font-size: $font-size__l;
+        margin-block-end: auto;
+        margin-block-start: auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .header {
+        &__title {
+            font-size: $font-size__xl;           
+        }  
+        &__subtitle {
+            font-size: $font-size__m;  
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .header {
+        padding: $indent__s;
+
+        &__title {
+            font-size: $font-size__l;    
+        }  
+    }
+}
+
+@media (max-width: 285px) {
+    .header {
+        &__title {
+            font-size: $font-size__m;    
+        }  
+
+        &__subtitle {
+            font-size: $font-size__s;  
+        }
+    }
+}

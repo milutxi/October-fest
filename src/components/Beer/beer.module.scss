@@ -1,0 +1,82 @@
+@import '../../App.scss';
+
+.beer {
+    padding: $indent__l;
+
+    &__button {
+        @include button-style;   
+    }    
+
+    &__content {
+        @include flexbox-beer;
+    }
+
+    &__image {
+        width: 50%;
+    }
+
+    &__left {
+       display: flex;
+       justify-content: flex-end;
+       padding: $indent__m;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        padding: $indent__m;
+    }
+
+    &__name {
+        font-family: $font-germania;
+        font-size: $font-size__l;
+        text-decoration: underline 2px;
+    }
+}
+
+@media (max-width: 650px) {
+    .beer {
+        padding: $indent__s;
+        
+        &__image {
+            width: 65%;
+        }
+       
+        &__name {
+            font-size: $font-size__m;
+        }
+
+        &__food {
+            padding: $indent__m;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .beer {       
+        &__left {
+            justify-content: center;
+            padding: $indent__s;
+            width: 40%;
+        }
+
+        &__right{
+            padding: 0px;
+            width: 60%;
+        }
+       
+        &__name {
+            font-size: $font-size__m;
+        }
+    }
+}
+
+@media (max-width: 285px) {
+    .beer {
+        &__button {
+            width: 100%;
+        }
+    }
+}
+
+
