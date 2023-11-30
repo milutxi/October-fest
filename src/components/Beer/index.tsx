@@ -17,12 +17,13 @@ const Beer = () => {
 
     const getBeer = async( url:string ): Promise <void> => {
         const id:number = Math.floor(Math.random()*25);
-        const response:any = await fetch (API_URL + id);
+        const response:any = await fetch (url + id);
         const data:any = await response.json();
 
-            console.log(data)
-            
-        setBeers(data);     
+        console.log(data)
+        console.log(data[0])
+
+        setBeers(data[0]);     
     }
 
     return (
@@ -30,27 +31,21 @@ const Beer = () => {
             <button className={styles["beer__button"]} onClick= {() => getBeer(API_URL)}>CHOOSE YOUR BEER</button>
           
             {beers && 
-                    <div>
-                    {beers.map((beer:Beer) => (
-                        
-                        <div key={beer.id} className={styles["beer__content"]}>
-                            <div className={styles["beer__left"]}>
-                            <img className={styles["beer__image"]} src={beer.image_url}/>
-                            </div>
-                            <div className={styles["beer__right"]}>
-                            <h2 className={styles["beer__name"]}>Beer: {beer.name}</h2>
-                            <h3>Alcohol: <span>{beer.abv}</span>%</h3>
-                            <h3>Food Pairing</h3>
-                            <ul className={styles["beer__food"]}>{beer.food_pairing.map((food_pairing:string, i:number) =><li key={i}>{food_pairing}</li> )}</ul>
-                            </div>
-                            
-                            
+                <div>   
+                    <div key={beers.id} className={styles["beer__content"]}>
+                        <div className={styles["beer__left"]}>
+                            <img className={styles["beer__image"]} src={beers.image_url}/>
                         </div>
-                ))}
+                        <div className={styles["beer__right"]}>
+                            <h2 className={styles["beer__name"]}>Beer: {beers.name}</h2>
+                            <h3>Alcohol: <span>{beers.abv}</span>%</h3>
+                            <h3>Food Pairing</h3>
+                            <ul className={styles["beer__food"]}>{beers.food_pairing.map((food_pairing:string, i:number) =><li key={i}>{food_pairing}</li> )}</ul>
+                        </div>   
+                    </div>
                 </div>
             }
         </div>
-        
     )
 }
 
